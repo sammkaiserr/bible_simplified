@@ -230,34 +230,29 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
                   const SizedBox(height: 12),
 
                   // Display according to Reading Mode
-                  if (settings.readingMode == AppConstants.readingModeOriginal)
+                  if (settings.readingMode == AppConstants.readingModeSimple)
                     Text(
                       verse.originalText,
+                      style: AppTypography.teluguSimple(
+                        fontSize: settings.fontSize - 1.0,
+                        isDark: isDark,
+                      ),
+                    ),
+
+                  if (settings.readingMode == AppConstants.readingModeOriginal)
+                    Text(
+                      verse.simpleText ?? verse.originalText,
                       style: AppTypography.teluguOriginal(
                         fontSize: settings.fontSize,
                         isDark: isDark,
                       ),
                     ),
 
-                  if (settings.readingMode == AppConstants.readingModeSimple)
-                    Text(
-                      verse.simpleText ?? verse.originalText,
-                      style: verse.simpleText != null
-                          ? AppTypography.teluguSimple(
-                              fontSize: settings.fontSize - 1.0,
-                              isDark: isDark,
-                            )
-                          : AppTypography.teluguOriginal(
-                              fontSize: settings.fontSize,
-                              isDark: isDark,
-                            ),
-                    ),
-
                   if (settings.readingMode == AppConstants.readingModeBoth) ...[
                     Text(
                       verse.originalText,
-                      style: AppTypography.teluguOriginal(
-                        fontSize: settings.fontSize,
+                      style: AppTypography.teluguSimple(
+                        fontSize: settings.fontSize - 1.0,
                         isDark: isDark,
                       ),
                     ),
@@ -271,13 +266,13 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
                         children: [
                           const Padding(
                             padding: EdgeInsets.only(top: 4.0, right: 6.0),
-                            child: Icon(Icons.wb_sunny_rounded, size: 14, color: AppColors.gold500),
+                            child: Icon(Icons.menu_book_rounded, size: 14, color: AppColors.gold500),
                           ),
                           Expanded(
                             child: Text(
                               verse.simpleText!,
-                              style: AppTypography.teluguSimple(
-                                fontSize: settings.fontSize - 1.0,
+                              style: AppTypography.teluguOriginal(
+                                fontSize: settings.fontSize,
                                 isDark: isDark,
                               ),
                             ),
@@ -648,8 +643,8 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
                 onTap: () {
                   Clipboard.setData(ClipboardData(
                     text: '📖 $bookName ${verse.chapterNumber}:${verse.verseNumber}\n\n'
-                        '${verse.simpleText ?? ""}\n\n'
-                        '(${verse.originalText})',
+                        '${verse.originalText}\n\n'
+                        '(${verse.simpleText ?? verse.originalText})',
                   ));
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(

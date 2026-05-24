@@ -273,7 +273,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
               // Match snippet (Original traditional)
               Text(
-                'అసలు వాక్యం (Original):',
+                'సులభమైన వివరణ (Simple):',
                 style: theme.textTheme.labelSmall?.copyWith(
                   fontFamily: 'NotoSansTelugu',
                   color: isDark ? Colors.white38 : Colors.grey[600],
@@ -284,9 +284,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               
               if (verse.simpleText != null) ...[
                 const SizedBox(height: 10),
-                // Match snippet (Simple)
+                // Match snippet (Original traditional)
                 Text(
-                  'సులభమైన వివరణ (Simple):',
+                  'అసలు వాక్యం (Original):',
                   style: theme.textTheme.labelSmall?.copyWith(
                     fontFamily: 'NotoSansTelugu',
                     color: AppColors.gold500.withOpacity(isDark ? 0.6 : 0.8),

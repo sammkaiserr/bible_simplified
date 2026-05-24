@@ -17,10 +17,10 @@ class ShareService {
 📖 $bookName ${verse.chapterNumber}:${verse.verseNumber}
 
 [సాధారణ తెలుగు]
-${verse.simpleText ?? verse.originalText}
+${verse.originalText}
 
 [మూల గ్రంథం]
-${verse.originalText}
+${verse.simpleText ?? verse.originalText}
 
 ~ Bible Simplified యాప్ నుండి పంచుకోబడింది
 ''';

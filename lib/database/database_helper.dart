@@ -280,6 +280,7 @@ class DatabaseHelper {
           for (final verseData in versesList) {
             final int verseNumber = int.parse(verseData['verse'].toString());
             final String text = verseData['text'] as String;
+            final String? simpleTextFromJson = verseData['simpleText'] as String?;
             
             // Unique, predictable ID
             final int id = bookId * 1000000 + chapterNumber * 1000 + verseNumber;
@@ -294,8 +295,8 @@ class DatabaseHelper {
                 'bookId': bookId,
                 'chapterNumber': chapterNumber,
                 'verseNumber': verseNumber,
-                'originalText': text,
-                'simpleText': preSeeded,
+                'originalText': (simpleTextFromJson != null && simpleTextFromJson.isNotEmpty) ? simpleTextFromJson : (preSeeded ?? text),
+                'simpleText': text,
                 'originalTextEnglish': null,
                 'simpleTextEnglish': null,
               },

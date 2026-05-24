@@ -36,7 +36,7 @@ class AppSettingsNotifier extends StateNotifier<AppSettings> {
       : super(AppSettings(
           themeMode: ThemeMode.system,
           fontSize: AppConstants.defaultFontSize,
-          readingMode: AppConstants.readingModeBoth,
+          readingMode: AppConstants.readingModeSimple,
           languageCode: 'te',
         )) {
     _loadSettings();
@@ -55,7 +55,7 @@ class AppSettingsNotifier extends StateNotifier<AppSettings> {
     final fontSize = prefs.getDouble(AppConstants.keyFontSize) ?? AppConstants.defaultFontSize;
 
     // Reading Mode
-    final readingMode = prefs.getString(AppConstants.keyReadingMode) ?? AppConstants.readingModeBoth;
+    final readingMode = prefs.getString(AppConstants.keyReadingMode) ?? AppConstants.readingModeSimple;
 
     // Language Code
     final languageCode = prefs.getString(AppConstants.keyLanguage) ?? 'te';

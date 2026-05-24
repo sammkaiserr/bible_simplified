@@ -93,6 +93,7 @@ class WebDatabase {
         for (final verseData in versesData) {
           final int verseNumber = int.parse(verseData['verse'].toString());
           final String text = verseData['text'] as String;
+          final String? simpleTextFromJson = verseData['simpleText'] as String?;
           
           final int id = bookId * 1000000 + chapterNumber * 1000 + verseNumber;
 
@@ -104,8 +105,8 @@ class WebDatabase {
             'bookId': bookId,
             'chapterNumber': chapterNumber,
             'verseNumber': verseNumber,
-            'originalText': text,
-            'simpleText': preSeeded,
+            'originalText': (simpleTextFromJson != null && simpleTextFromJson.isNotEmpty) ? simpleTextFromJson : (preSeeded ?? text),
+            'simpleText': text,
             'originalTextEnglish': null,
             'simpleTextEnglish': null,
           });

@@ -7,7 +7,7 @@ class AppConstants {
 
   // Database
   static const String dbName = 'bible_simplified.db';
-  static const int dbVersion = 3;
+  static const int dbVersion = 4;
 
   // SharedPreferences keys
   static const String keyThemeMode = 'theme_mode';
