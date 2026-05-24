@@ -106,7 +106,7 @@ class WebDatabase {
             'chapterNumber': chapterNumber,
             'verseNumber': verseNumber,
             'originalText': (simpleTextFromJson != null && simpleTextFromJson.isNotEmpty) ? simpleTextFromJson : (preSeeded ?? text),
-            'simpleText': text,
+            'simpleText': null,
             'originalTextEnglish': null,
             'simpleTextEnglish': null,
           });

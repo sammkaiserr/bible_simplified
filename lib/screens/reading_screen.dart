@@ -75,12 +75,7 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
           ),
         ),
         actions: [
-          // Reading Mode Selector Icon Button
-          IconButton(
-            icon: const Icon(Icons.translate_rounded),
-            tooltip: 'రీడింగ్ మోడ్',
-            onPressed: () => _showReadingModeSelector(context, ref, settings),
-          ),
+
           // Font Settings Button
           IconButton(
             icon: const Icon(Icons.format_size_rounded),
@@ -229,58 +224,14 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
                   ),
                   const SizedBox(height: 12),
 
-                  // Display according to Reading Mode
-                  if (settings.readingMode == AppConstants.readingModeSimple)
-                    Text(
-                      verse.originalText,
-                      style: AppTypography.teluguSimple(
-                        fontSize: settings.fontSize - 1.0,
-                        isDark: isDark,
-                      ),
+                  // Simple Translated Text
+                  Text(
+                    verse.originalText,
+                    style: AppTypography.teluguSimple(
+                      fontSize: settings.fontSize,
+                      isDark: isDark,
                     ),
-
-                  if (settings.readingMode == AppConstants.readingModeOriginal)
-                    Text(
-                      verse.simpleText ?? verse.originalText,
-                      style: AppTypography.teluguOriginal(
-                        fontSize: settings.fontSize,
-                        isDark: isDark,
-                      ),
-                    ),
-
-                  if (settings.readingMode == AppConstants.readingModeBoth) ...[
-                    Text(
-                      verse.originalText,
-                      style: AppTypography.teluguSimple(
-                        fontSize: settings.fontSize - 1.0,
-                        isDark: isDark,
-                      ),
-                    ),
-                    if (verse.simpleText != null) ...[
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8.0),
-                        child: Divider(color: Colors.grey, thickness: 0.5),
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 4.0, right: 6.0),
-                            child: Icon(Icons.menu_book_rounded, size: 14, color: AppColors.gold500),
-                          ),
-                          Expanded(
-                            child: Text(
-                              verse.simpleText!,
-                              style: AppTypography.teluguOriginal(
-                                fontSize: settings.fontSize,
-                                isDark: isDark,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ],
+                  ),
 
                   // Display note preview if available
                   if (note != null) ...[
@@ -384,72 +335,7 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
 
   // ─── Settings Bottom Sheets ────────────────────────────────────
 
-  void _showReadingModeSelector(BuildContext context, WidgetRef ref, AppSettings settings) {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-      ),
-      builder: (context) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'రీడింగ్ మోడ్ ఎంచుకోండి',
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontFamily: 'NotoSansTelugu',
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const SizedBox(height: 16),
-              ListTile(
-                title: const Text('రెండు రకాల వచనాలు (Both Texts)', style: TextStyle(fontFamily: 'NotoSansTelugu')),
-                subtitle: const Text('మూల వాక్యం మరియు సాధారణ వివరణ రెండు చూపిస్తుంది.'),
-                leading: Radio<String>(
-                  value: AppConstants.readingModeBoth,
-                  groupValue: settings.readingMode,
-                  activeColor: AppColors.gold500,
-                  onChanged: (val) {
-                    ref.read(settingsProvider.notifier).setReadingMode(val!);
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              ListTile(
-                title: const Text('సాధారణ తెలుగు మాత్రమే (Simple Telugu)', style: TextStyle(fontFamily: 'NotoSansTelugu')),
-                subtitle: const Text('అర్థం చేసుకోవడానికి సులభమైన తెలుగు వాక్యం మాత్రమే చూపిస్తుంది.'),
-                leading: Radio<String>(
-                  value: AppConstants.readingModeSimple,
-                  groupValue: settings.readingMode,
-                  activeColor: AppColors.gold500,
-                  onChanged: (val) {
-                    ref.read(settingsProvider.notifier).setReadingMode(val!);
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              ListTile(
-                title: const Text('మూల గ్రంథం మాత్రమే (Original Telugu)', style: TextStyle(fontFamily: 'NotoSansTelugu')),
-                subtitle: const Text('సాంప్రదాయ పూర్వ తెలుగు వాక్యం మాత్రమే చూపిస్తుంది.'),
-                leading: Radio<String>(
-                  value: AppConstants.readingModeOriginal,
-                  groupValue: settings.readingMode,
-                  activeColor: AppColors.gold500,
-                  onChanged: (val) {
-                    ref.read(settingsProvider.notifier).setReadingMode(val!);
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
+
 
   void _showFontSizeSelector(BuildContext context, WidgetRef ref, AppSettings settings) {
     showModalBottomSheet(
@@ -643,8 +529,7 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
                 onTap: () {
                   Clipboard.setData(ClipboardData(
                     text: '📖 $bookName ${verse.chapterNumber}:${verse.verseNumber}\n\n'
-                        '${verse.originalText}\n\n'
-                        '(${verse.simpleText ?? verse.originalText})',
+                        '${verse.originalText}',
                   ));
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(

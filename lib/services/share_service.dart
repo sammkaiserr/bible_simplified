@@ -16,11 +16,7 @@ class ShareService {
     final text = '''
 📖 $bookName ${verse.chapterNumber}:${verse.verseNumber}
 
-[సాధారణ తెలుగు]
 ${verse.originalText}
-
-[మూల గ్రంథం]
-${verse.simpleText ?? verse.originalText}
 
 ~ Bible Simplified యాప్ నుండి పంచుకోబడింది
 ''';

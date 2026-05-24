@@ -182,58 +182,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           const SizedBox(height: 24),
 
-          // Section: Reading Mode
-          _buildSectionHeader(theme, isDark, loc.translate('readingMode'), settings.languageCode),
-          _buildCardContainer(
-            isDark: isDark,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  settings.languageCode == 'te'
-                      ? 'బైబిల్ చదివే విధానం ఎంచుకోండి:'
-                      : 'Choose bible reading layout style:',
-                  style: TextStyle(
-                    fontFamily: settings.languageCode == 'te' ? 'NotoSansTelugu' : null,
-                    fontSize: 14,
-                    color: Colors.grey,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                _buildReadingModeOption(
-                  theme,
-                  isDark,
-                  settings.languageCode,
-                  title: loc.translate('originalScripture'),
-                  subtitle: settings.languageCode == 'te' ? 'Traditional / Original Telugu' : 'Original Text',
-                  value: AppConstants.readingModeOriginal,
-                  groupValue: settings.readingMode,
-                ),
-                const Divider(height: 1),
-                _buildReadingModeOption(
-                  theme,
-                  isDark,
-                  settings.languageCode,
-                  title: loc.translate('simplifiedScripture'),
-                  subtitle: settings.languageCode == 'te' ? 'Easy-to-understand Simplified Telugu' : 'Simplified Text',
-                  value: AppConstants.readingModeSimple,
-                  groupValue: settings.readingMode,
-                ),
-                const Divider(height: 1),
-                _buildReadingModeOption(
-                  theme,
-                  isDark,
-                  settings.languageCode,
-                  title: loc.translate('bothCombined'),
-                  subtitle: settings.languageCode == 'te' ? 'Both Traditional & Simple Parallel' : 'Both Parallel',
-                  value: AppConstants.readingModeBoth,
-                  groupValue: settings.readingMode,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 24),
-
 
 
           // Section: About App
@@ -376,66 +324,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     );
   }
 
-  Widget _buildReadingModeOption(
-    ThemeData theme,
-    bool isDark,
-    String languageCode, {
-    required String title,
-    required String subtitle,
-    required String value,
-    required String groupValue,
-  }) {
-    final isSelected = value == groupValue;
-    return InkWell(
-      onTap: () {
-        ref.read(settingsProvider.notifier).setReadingMode(value);
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 4.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontFamily: languageCode == 'te' ? 'NotoSansTelugu' : null,
-                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                      fontSize: 15,
-                      color: isSelected
-                          ? (isDark ? AppColors.gold300 : AppColors.navy900)
-                          : (isDark ? Colors.white.withOpacity(0.87) : AppColors.navy800),
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    subtitle,
-                    style: TextStyle(
-                      fontFamily: languageCode == 'te' ? 'NotoSansTelugu' : null,
-                      fontSize: 11,
-                      color: isDark ? Colors.white38 : Colors.grey[600],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Radio<String>(
-              value: value,
-              groupValue: groupValue,
-              activeColor: AppColors.gold500,
-              onChanged: (val) {
-                if (val != null) {
-                  ref.read(settingsProvider.notifier).setReadingMode(val);
-                }
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   Widget _buildAboutRow(String title, String val, String languageCode) {
     return Padding(
