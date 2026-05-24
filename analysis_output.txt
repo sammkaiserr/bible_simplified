@@ -1,0 +1,301 @@
+Analyzing bible Simplied...                                     
+
+   info • Dangling library doc comment • lib/database/bible_data.dart:1:1 • dangling_library_doc_comments
+   info • Dangling library doc comment • lib/database/database_helper.dart:1:1 • dangling_library_doc_comments
+  error • The named parameter 'book' is required, but there's no corresponding argument • lib/main.dart:73:46 • missing_required_argument
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/main.dart:106:32 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/main.dart:108:30 • undefined_getter
+  error • The getter 'amber700' isn't defined for the type 'AppColors' • lib/main.dart:110:32 • undefined_getter
+   info • 'background' is deprecated and shouldn't be used. Use surface instead. This feature was deprecated after v3.18.0-0.1.pre • lib/main.dart:111:11 • deprecated_member_use
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/main.dart:111:33 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/main.dart:114:44 • undefined_getter
+  error • Invalid constant value • lib/main.dart:116:28 • invalid_constant
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/main.dart:116:38 • undefined_getter
+  error • Invalid constant value • lib/main.dart:119:43 • invalid_constant
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/main.dart:119:53 • undefined_getter
+  error • Invalid constant value • lib/main.dart:121:20 • invalid_constant
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/main.dart:121:30 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/main.dart:128:30 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/main.dart:132:30 • undefined_getter
+  error • Invalid constant value • lib/main.dart:136:29 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/main.dart:136:39 • undefined_getter
+  error • Invalid constant value • lib/main.dart:137:23 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/main.dart:137:33 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/main.dart:146:32 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/main.dart:148:30 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/main.dart:150:32 • undefined_getter
+   info • 'background' is deprecated and shouldn't be used. Use surface instead. This feature was deprecated after v3.18.0-0.1.pre • lib/main.dart:151:11 • deprecated_member_use
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/main.dart:151:33 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/main.dart:152:30 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/main.dart:154:44 • undefined_getter
+  error • Invalid constant value • lib/main.dart:156:28 • invalid_constant
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/main.dart:156:38 • undefined_getter
+  error • Invalid constant value • lib/main.dart:176:29 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/main.dart:176:39 • undefined_getter
+  error • Invalid constant value • lib/main.dart:177:23 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/main.dart:177:33 • undefined_getter
+warning • Unused import: 'bible_reading_provider.dart' • lib/providers/ai_explanation_provider.dart:4:8 • unused_import
+   info • Don't use 'BuildContext's across async gaps • lib/screens/ai_explanation_sheet.dart:59:28 • use_build_context_synchronously
+   info • Don't use 'BuildContext's across async gaps • lib/screens/ai_explanation_sheet.dart:64:28 • use_build_context_synchronously
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:84:35 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:84:55 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/ai_explanation_sheet.dart:88:33 • deprecated_member_use
+  error • Invalid constant value • lib/screens/ai_explanation_sheet.dart:126:67 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:126:77 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:133:68 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:141:40 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:152:65 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:182:41 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/ai_explanation_sheet.dart:185:46 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/ai_explanation_sheet.dart:185:78 • deprecated_member_use
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:194:60 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:228:35 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:231:28 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:242:41 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:242:61 • undefined_getter
+  error • The getter 'black80' isn't defined for the type 'Colors' • lib/screens/ai_explanation_sheet.dart:250:55 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:265:51 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:279:46 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:301:35 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:329:29 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:335:40 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:352:58 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:361:44 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:362:49 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:446:51 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:453:43 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:453:63 • undefined_getter
+  error • The getter 'white87' isn't defined for the type 'Colors' • lib/screens/ai_explanation_sheet.dart:464:36 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/ai_explanation_sheet.dart:464:56 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/book_selection_screen.dart:51:43 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/screens/book_selection_screen.dart:51:63 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/book_selection_screen.dart:77:51 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/book_selection_screen.dart:89:43 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/book_selection_screen.dart:90:48 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/book_selection_screen.dart:90:68 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/book_selection_screen.dart:151:35 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/book_selection_screen.dart:154:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/book_selection_screen.dart:154:72 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/book_selection_screen.dart:158:33 • deprecated_member_use
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/book_selection_screen.dart:197:68 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/book_selection_screen.dart:216:38 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/chapter_selection_screen.dart:19:43 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/screens/chapter_selection_screen.dart:19:63 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/chapter_selection_screen.dart:72:25 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/chapter_selection_screen.dart:73:35 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/chapter_selection_screen.dart:77:27 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/chapter_selection_screen.dart:78:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/chapter_selection_screen.dart:78:72 • deprecated_member_use
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/chapter_selection_screen.dart:84:29 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/chapter_selection_screen.dart:85:32 • deprecated_member_use
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/chapter_selection_screen.dart:107:58 • undefined_getter
+warning • Unused import: '../core/constants.dart' • lib/screens/home_screen.dart:5:8 • unused_import
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:59:30 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:59:49 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:60:30 • undefined_getter
+  error • The getter 'ivory100' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:60:49 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:69:30 • undefined_getter
+  error • The getter 'navy600' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:87:76 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:95:59 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:95:79 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:103:70 • undefined_getter
+  error • The getter 'white80' isn't defined for the type 'Colors' • lib/screens/home_screen.dart:171:50 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:171:70 • undefined_getter
+  error • The getter 'white80' isn't defined for the type 'Colors' • lib/screens/home_screen.dart:207:52 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:207:72 • undefined_getter
+  error • The named parameter 'bottom' isn't defined • lib/screens/home_screen.dart:226:73 • undefined_named_parameter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:264:37 • undefined_getter
+  error • Invalid constant value • lib/screens/home_screen.dart:268:51 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:268:61 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:286:28 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:286:47 • undefined_getter
+  error • The getter 'ivory200' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:287:42 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:291:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:297:40 • deprecated_member_use
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:297:70 • undefined_getter
+  error • Invalid constant value • lib/screens/home_screen.dart:321:63 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:321:73 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:328:55 • undefined_getter
+  error • The getter 'amber700' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:328:75 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:345:62 • undefined_getter
+  error • The getter 'navy700' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:356:68 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:362:42 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:370:53 • undefined_getter
+  error • The getter 'amber800' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:370:73 • undefined_getter
+  error • Invalid constant value • lib/screens/home_screen.dart:395:20 • invalid_constant
+  error • The values in a const list literal must be constants • lib/screens/home_screen.dart:395:20 • non_constant_list_element
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:395:30 • undefined_getter
+  error • The values in a const list literal must be constants • lib/screens/home_screen.dart:395:39 • non_constant_list_element
+  error • The getter 'amber700' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:395:49 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:401:30 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:422:45 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:439:49 • deprecated_member_use
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:480:35 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:484:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:490:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:490:72 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:506:34 • deprecated_member_use
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:517:62 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:539:35 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:542:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:542:72 • deprecated_member_use
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:568:62 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:583:38 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:598:35 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:601:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:601:72 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/home_screen.dart:620:87 • deprecated_member_use
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/home_screen.dart:647:68 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:41:24 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:64:43 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:64:63 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:75:37 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:76:33 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:134:60 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:181:39 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:198:46 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:198:78 • deprecated_member_use
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:201:39 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:219:46 • undefined_getter
+  error • Invalid constant value • lib/screens/library_screen.dart:227:38 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:227:48 • undefined_getter
+  error • The getter 'white87' isn't defined for the type 'Colors' • lib/screens/library_screen.dart:247:48 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:247:68 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:289:39 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:306:46 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:306:78 • deprecated_member_use
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:309:39 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:327:48 • deprecated_member_use
+  error • Invalid constant value • lib/screens/library_screen.dart:367:72 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:367:82 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:377:72 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:422:39 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:439:46 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:439:78 • deprecated_member_use
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:442:39 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:460:63 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/library_screen.dart:485:59 • deprecated_member_use
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/library_screen.dart:497:68 • undefined_getter
+  error • Invalid constant value • lib/screens/reading_screen.dart:48:51 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:48:61 • undefined_getter
+  error • 'ChapterKey' isn't a function • lib/screens/reading_screen.dart:57:65 • invocation_of_non_function
+  error • The name 'ChapterKey' is defined in the libraries 'package:bible_simplified/providers/highlight_provider.dart' and 'package:bible_simplified/providers/note_provider.dart' • lib/screens/reading_screen.dart:57:65 • ambiguous_import
+  error • 'ChapterKey' isn't a function • lib/screens/reading_screen.dart:58:55 • invocation_of_non_function
+  error • The name 'ChapterKey' is defined in the libraries 'package:bible_simplified/providers/highlight_provider.dart' and 'package:bible_simplified/providers/note_provider.dart' • lib/screens/reading_screen.dart:58:55 • ambiguous_import
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:61:43 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:61:63 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/reading_screen.dart:181:46 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/reading_screen.dart:197:40 • deprecated_member_use
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:211:53 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:211:73 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:220:55 • undefined_getter
+  error • The getter 'amber800' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:220:75 • undefined_getter
+  error • Invalid constant value • lib/screens/reading_screen.dart:226:82 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:226:92 • undefined_getter
+  error • The method 'teluguOriginal' isn't defined for the type 'AppTypography' • lib/screens/reading_screen.dart:237:44 • undefined_method
+  error • Invalid constant value • lib/screens/reading_screen.dart:257:80 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:257:90 • undefined_getter
+  error • The method 'teluguSimple' isn't defined for the type 'AppTypography' • lib/screens/reading_screen.dart:262:50 • undefined_method
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:279:51 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/reading_screen.dart:279:91 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/reading_screen.dart:282:73 • deprecated_member_use
+  error • The getter 'navy700' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:290:70 • undefined_getter
+  error • Undefined class 'Book' • lib/screens/reading_screen.dart:307:5 • undefined_class
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:313:35 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/reading_screen.dart:316:33 • deprecated_member_use
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:339:44 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:340:53 • undefined_getter
+  error • The getter 'amber800' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:340:73 • undefined_getter
+warning • The value of the local variable 'isDark' isn't used • lib/screens/reading_screen.dart:379:15 • unused_local_variable
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:400:42 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:413:42 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:426:42 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:477:50 • undefined_getter
+warning • The value of 'refresh' should be used • lib/screens/reading_screen.dart:555:31 • unused_result
+  error • 'ChapterKey' isn't a function • lib/screens/reading_screen.dart:555:65 • invocation_of_non_function
+  error • The name 'ChapterKey' is defined in the libraries 'package:bible_simplified/providers/highlight_provider.dart' and 'package:bible_simplified/providers/note_provider.dart' • lib/screens/reading_screen.dart:555:65 • ambiguous_import
+  error • The method 'replaceFirst' isn't defined for the type 'Color' • lib/screens/reading_screen.dart:565:62 • undefined_method
+  error • The argument type 'Color' can't be assigned to the parameter type 'String'.  • lib/screens/reading_screen.dart:576:45 • argument_type_not_assignable
+warning • The value of 'refresh' should be used • lib/screens/reading_screen.dart:578:33 • unused_result
+  error • 'ChapterKey' isn't a function • lib/screens/reading_screen.dart:578:67 • invocation_of_non_function
+  error • The name 'ChapterKey' is defined in the libraries 'package:bible_simplified/providers/highlight_provider.dart' and 'package:bible_simplified/providers/note_provider.dart' • lib/screens/reading_screen.dart:578:67 • ambiguous_import
+   info • Unnecessary use of 'toList' in a spread • lib/screens/reading_screen.dart:588:24 • unnecessary_to_list_in_spreads
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:599:51 • undefined_getter
+  error • Invalid constant value • lib/screens/reading_screen.dart:627:70 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:627:80 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:708:90 • undefined_getter
+warning • The value of 'refresh' should be used • lib/screens/reading_screen.dart:724:29 • unused_result
+  error • 'ChapterKey' isn't a function • lib/screens/reading_screen.dart:724:58 • invocation_of_non_function
+  error • The name 'ChapterKey' is defined in the libraries 'package:bible_simplified/providers/highlight_provider.dart' and 'package:bible_simplified/providers/note_provider.dart' • lib/screens/reading_screen.dart:724:58 • ambiguous_import
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/reading_screen.dart:732:50 • undefined_getter
+warning • The value of 'refresh' should be used • lib/screens/reading_screen.dart:747:29 • unused_result
+  error • 'ChapterKey' isn't a function • lib/screens/reading_screen.dart:747:58 • invocation_of_non_function
+  error • The name 'ChapterKey' is defined in the libraries 'package:bible_simplified/providers/highlight_provider.dart' and 'package:bible_simplified/providers/note_provider.dart' • lib/screens/reading_screen.dart:747:58 • ambiguous_import
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:48:43 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:48:63 • undefined_getter
+  error • Invalid constant value • lib/screens/search_screen.dart:71:69 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:71:79 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:83:47 • undefined_getter
+  error • The named parameter 'boxShadow' isn't defined • lib/screens/search_screen.dart:89:17 • undefined_named_parameter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/search_screen.dart:91:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/search_screen.dart:222:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/search_screen.dart:222:72 • deprecated_member_use
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:225:33 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:246:49 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:246:69 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:254:42 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:287:38 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:314:54 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:331:56 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:339:38 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:341:52 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:353:54 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:371:44 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/search_screen.dart:372:49 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:43:43 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:43:63 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:91:42 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:103:42 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:114:47 • undefined_getter
+  error • The getter 'ivory200' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:114:67 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/settings_screen.dart:117:52 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/settings_screen.dart:117:84 • deprecated_member_use
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:137:68 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:231:51 • undefined_getter
+  error • Invalid constant value • lib/screens/settings_screen.dart:235:70 • invalid_constant
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:235:80 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:308:37 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:308:57 • undefined_getter
+  error • The getter 'navy850' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:319:35 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/settings_screen.dart:322:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/settings_screen.dart:322:72 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/settings_screen.dart:326:33 • deprecated_member_use
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:369:48 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:409:49 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:409:69 • undefined_getter
+  error • The getter 'white87' isn't defined for the type 'Colors' • lib/screens/settings_screen.dart:410:46 • undefined_getter
+  error • The getter 'navy800' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:410:66 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/settings_screen.dart:427:38 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:39:30 • undefined_getter
+  error • The getter 'navy950' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:39:49 • undefined_getter
+  error • The getter 'ivory50' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:40:30 • undefined_getter
+  error • The getter 'ivory200' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:40:49 • undefined_getter
+  error • Invalid constant value • lib/screens/splash_screen.dart:54:30 • invalid_constant
+  error • The values in a const list literal must be constants • lib/screens/splash_screen.dart:54:30 • non_constant_list_element
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:54:40 • undefined_getter
+  error • The values in a const list literal must be constants • lib/screens/splash_screen.dart:54:49 • non_constant_list_element
+  error • The getter 'amber700' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:54:59 • undefined_getter
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:60:40 • undefined_getter
+  error • The getter 'outBack' isn't defined for the type 'Curves' • lib/screens/splash_screen.dart:75:69 • undefined_getter
+  error • The getter 'gold300' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:85:45 • undefined_getter
+  error • The getter 'navy900' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:85:65 • undefined_getter
+  error • The getter 'navy700' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:99:62 • undefined_getter
+  error • Arguments of a constant creation must be constant expressions • lib/screens/splash_screen.dart:115:61 • const_with_non_constant_argument
+  error • The getter 'gold500' isn't defined for the type 'AppColors' • lib/screens/splash_screen.dart:115:71 • undefined_getter
+  error • Undefined name 'parts' • lib/services/ai_service.dart:101:58 • undefined_identifier
+warning • Unused import: '../models/book.dart' • lib/services/daily_verse_service.dart:6:8 • unused_import
+warning • The value of the local variable 'random' isn't used • lib/services/daily_verse_service.dart:29:13 • unused_local_variable
+   info • Dangling library doc comment • lib/theme/app_colors.dart:1:1 • dangling_library_doc_comments
+   info • Dangling library doc comment • lib/theme/app_theme.dart:1:1 • dangling_library_doc_comments
+   info • Dangling library doc comment • lib/theme/app_typography.dart:1:1 • dangling_library_doc_comments
+
