@@ -81,28 +81,37 @@ def save_progress(progress):
             json.dump(progress, f, indent=3)
 
 def translate_single_string(text):
-    """Translate a single string using deep-translator with retry logic."""
-    translator = GoogleTranslator(source='en', target='te')
+    """Translate a single string using Google Translate free API endpoint."""
+    url = "https://translate.googleapis.com/translate_a/single"
+    params = {
+        "client": "gtx",
+        "sl": "en",
+        "tl": "te",
+        "dt": "t",
+        "q": text
+    }
     for attempt in range(5):
         try:
-            return translator.translate(text)
-        except Exception as e:
+            resp = requests.get(url, params=params, timeout=10)
+            if resp.status_code == 200:
+                data = resp.json()
+                translated = "".join(segment[0] for segment in data[0] if segment[0])
+                return translated
+            elif resp.status_code == 429:
+                time.sleep(2)
+            else:
+                time.sleep(1)
+        except Exception:
             time.sleep(1)
     return None
 
 def translate_verses_slow(english_texts):
-    """Fallback: Translate one-by-one if separator translation fails or length mismatches."""
-    translator = GoogleTranslator(source='en', target='te')
+    """Fallback: Translate one-by-one using Google Translate free API endpoint."""
     results = []
     for text in english_texts:
-        res = None
-        for attempt in range(3):
-            try:
-                res = translator.translate(text)
-                break
-            except Exception:
-                time.sleep(0.5)
+        res = translate_single_string(text)
         results.append(res or "")
+        time.sleep(0.1)
     return results
 
 def translate_verses_fast(english_texts):
@@ -174,26 +183,50 @@ def process_book(book_idx, book_name, bbe_book):
         for v in verses:
             verse_num = int(v["verse"])
             if "simpleText" not in v or not v["simpleText"]:
-                needs_translation.append(v)
-                
-                # Handle special mismatches
-                if book_name == "Psalms" and chapter_num == 76:
-                    english_text = bbe_book["chapters"][75][verse_num]
-                elif book_name == "3 John" and chapter_num == 1 and verse_num == 14:
-                    english_text = bbe_book["chapters"][0][13] + " " + bbe_book["chapters"][0][14]
+                english_text = ""
+                try:
+                    # Handle special mismatches
+                    if book_name == "Psalms" and chapter_num == 76:
+                        english_text = bbe_book["chapters"][75][verse_num]
+                    elif book_name == "3 John" and chapter_num == 1 and verse_num == 14:
+                        english_text = bbe_book["chapters"][0][13] + " " + bbe_book["chapters"][0][14]
+                    else:
+                        english_text = bbe_book["chapters"][ch_idx][verse_num - 1]
+                except IndexError:
+                    pass
+
+                # Check if English text is omitted or invalid in BBE
+                clean_eng = english_text.strip()
+                if not clean_eng or clean_eng in ("[]", "***", "()", "[ ]") or not any(c.isalnum() for c in clean_eng):
+                    v["simpleText"] = v["text"]  # Fallback to original Telugu text
+                    modified = True
                 else:
-                    english_text = bbe_book["chapters"][ch_idx][verse_num - 1]
-                
-                english_texts.append(english_text)
+                    needs_translation.append(v)
+                    english_texts.append(english_text)
 
         # Translate in fast chunked mode
         if needs_translation:
             translated_texts = translate_verses_fast(english_texts)
 
             if translated_texts and len(translated_texts) == len(needs_translation):
+                book_has_failures = False
                 for v, telugu_text in zip(needs_translation, translated_texts):
-                    v["simpleText"] = telugu_text
-                modified = True
+                    clean_telugu = telugu_text.strip()
+                    if clean_telugu:
+                        v["simpleText"] = clean_telugu
+                        modified = True
+                    else:
+                        book_has_failures = True
+                
+                if book_has_failures:
+                    safe_print(f"    ✗ {book_name} Ch.{chapter_num}: Some verses failed to translate (returned empty)")
+                    if modified:
+                        try:
+                            with open(filepath, 'w', encoding='utf-8') as f:
+                                json.dump(data, f, ensure_ascii=False, indent=3)
+                        except Exception:
+                            pass
+                    return book_name, False
             else:
                 safe_print(f"    ✗ {book_name} Ch.{chapter_num}: FAILED translation mismatch")
                 return book_name, False
@@ -221,19 +254,33 @@ def main():
     with open(BBE_CACHE_FILE, 'r', encoding='utf-8') as f:
         bbe_data = json.load(f)
     
-    progress = load_progress()
-    completed = set(progress.get("completed_books", []))
-    
-    print(f"Completed so far: {len(completed)}/66 books.")
-    
-    # Collect books to process
+    # Collect books to process by checking actual JSON files for missing translations
     books_to_process = []
     for idx, book_name in enumerate(STANDARD_BOOKS):
-        if book_name not in completed:
+        filepath = os.path.join(ASSETS_DIR, f"{book_name}.json")
+        needs_translation = False
+        
+        if not os.path.exists(filepath):
+            needs_translation = True
+        else:
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                for chapter in data.get("chapters", []):
+                    for v in chapter.get("verses", []):
+                        if "simpleText" not in v or not v["simpleText"]:
+                            needs_translation = True
+                            break
+                    if needs_translation:
+                        break
+            except Exception:
+                needs_translation = True
+                
+        if needs_translation:
             books_to_process.append((idx, book_name, bbe_data[idx]))
             
     if not books_to_process:
-        print("\n🎉 ALL 66 BOOKS OF THE BIBLE FULLY SIMPLIFIED!")
+        print("\n🎉 ALL 66 BOOKS OF THE BIBLE FULLY SIMPLIFIED AND VERIFIED!")
         sys.exit(0)
 
     print(f"Launching parallel translator with 45 worker threads for {len(books_to_process)} books...")
@@ -269,3 +316,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
