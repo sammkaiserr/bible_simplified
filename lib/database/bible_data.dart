@@ -1,5 +1,3 @@
-/// Complete Telugu Bible data - books metadata and verse data.
-/// Verses are loaded progressively from local JSON files.
 
 class BibleData {
   static List<Map<String, dynamic>> get verses => [];

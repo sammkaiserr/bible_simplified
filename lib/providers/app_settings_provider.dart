@@ -6,7 +6,7 @@ import '../core/constants.dart';
 class AppSettings {
   final ThemeMode themeMode;
   final double fontSize;
-  final String languageCode; // 'te' for Telugu, 'en' for English
+  final String languageCode;
 
   AppSettings({
     required this.themeMode,
@@ -39,18 +39,14 @@ class AppSettingsNotifier extends StateNotifier<AppSettings> {
 
   Future<void> _loadSettings() async {
     final prefs = await SharedPreferences.getInstance();
-    
-    // Theme Mode
+
     final themeIndex = prefs.getInt(AppConstants.keyThemeMode);
-    final themeMode = themeIndex != null 
-        ? ThemeMode.values[themeIndex] 
+    final themeMode = themeIndex != null
+        ? ThemeMode.values[themeIndex]
         : ThemeMode.system;
 
-    // Font Size
     final fontSize = prefs.getDouble(AppConstants.keyFontSize) ?? AppConstants.defaultFontSize;
 
-
-    // Language Code
     final languageCode = prefs.getString(AppConstants.keyLanguage) ?? 'te';
 
     state = AppSettings(
@@ -72,8 +68,6 @@ class AppSettingsNotifier extends StateNotifier<AppSettings> {
     await prefs.setDouble(AppConstants.keyFontSize, size);
     state = state.copyWith(fontSize: size);
   }
-
-
 
   Future<void> setLanguageCode(String languageCode) async {
     final prefs = await SharedPreferences.getInstance();

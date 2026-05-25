@@ -23,10 +23,9 @@ class NoteNotifier extends StateNotifier<List<Note>> {
     required String content,
   }) async {
     final now = DateTime.now().toIso8601String();
-    
-    // Check if note exists
+
     final existing = await _noteDao.getNoteForVerse(verseId);
-    
+
     final note = Note(
       id: existing?.id,
       verseId: verseId,

@@ -1,7 +1,4 @@
-/// SQLite database helper for Bible Simplified.
-///
-/// Handles database creation, migrations, schema setup (including FTS5),
-/// and seeding of the complete Telugu Bible data.
+
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/foundation.dart' show kIsWeb, debugPrint;
@@ -89,7 +86,7 @@ class DatabaseHelper {
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    // ─── Create tables ──────────────────────────────────────────
+
     await db.execute('''
       CREATE TABLE books (
         id INTEGER PRIMARY KEY,
@@ -115,38 +112,35 @@ class DatabaseHelper {
       )
     ''');
 
-    // Indexes for fast querying
     await db.execute(
       'CREATE INDEX idx_verses_book_chapter ON verses(bookId, chapterNumber)',
     );
 
-    // FTS5 virtual table for fast full-text search
     await db.execute('''
       CREATE VIRTUAL TABLE IF NOT EXISTS verses_fts USING fts5(
         originalText, simpleText, originalTextEnglish, simpleTextEnglish, content=verses, content_rowid=id
       )
     ''');
 
-    // Triggers to keep FTS in sync
     await db.execute('''
       CREATE TRIGGER verses_ai AFTER INSERT ON verses BEGIN
-        INSERT INTO verses_fts(rowid, originalText, simpleText, originalTextEnglish, simpleTextEnglish) 
+        INSERT INTO verses_fts(rowid, originalText, simpleText, originalTextEnglish, simpleTextEnglish)
         VALUES (new.id, new.originalText, new.simpleText, new.originalTextEnglish, new.simpleTextEnglish);
       END
     ''');
 
     await db.execute('''
       CREATE TRIGGER verses_ad AFTER DELETE ON verses BEGIN
-        INSERT INTO verses_fts(verses_fts, rowid, originalText, simpleText, originalTextEnglish, simpleTextEnglish) 
+        INSERT INTO verses_fts(verses_fts, rowid, originalText, simpleText, originalTextEnglish, simpleTextEnglish)
         VALUES('delete', old.id, old.originalText, old.simpleText, old.originalTextEnglish, old.simpleTextEnglish);
       END
     ''');
 
     await db.execute('''
       CREATE TRIGGER verses_au AFTER UPDATE ON verses BEGIN
-        INSERT INTO verses_fts(verses_fts, rowid, originalText, simpleText, originalTextEnglish, simpleTextEnglish) 
+        INSERT INTO verses_fts(verses_fts, rowid, originalText, simpleText, originalTextEnglish, simpleTextEnglish)
         VALUES('delete', old.id, old.originalText, old.simpleText, old.originalTextEnglish, old.simpleTextEnglish);
-        INSERT INTO verses_fts(rowid, originalText, simpleText, originalTextEnglish, simpleTextEnglish) 
+        INSERT INTO verses_fts(rowid, originalText, simpleText, originalTextEnglish, simpleTextEnglish)
         VALUES (new.id, new.originalText, new.simpleText, new.originalTextEnglish, new.simpleTextEnglish);
       END
     ''');
@@ -202,7 +196,6 @@ class DatabaseHelper {
       'CREATE UNIQUE INDEX idx_notes_verse ON notes(verseId)',
     );
 
-    // ─── Seed data ──────────────────────────────────────────────
     await _seedData(db);
   }
 
@@ -222,16 +215,13 @@ class DatabaseHelper {
     }
   }
 
-  /// Seeds the database with all 66 books and initial verse data.
   Future<void> _seedData(Database db) async {
     final batch = db.batch();
 
-    // Insert all 66 books
     for (final book in BibleData.books) {
       batch.insert('books', book);
     }
 
-    // Insert any initial static verses if present
     for (final verse in BibleData.verses) {
       batch.insert('verses', verse);
     }
@@ -239,7 +229,6 @@ class DatabaseHelper {
     await batch.commit(noResult: true);
   }
 
-  /// Loads a book by ID from its JSON asset, parses it, and seeds it into the database.
   Future<void> loadBookFromAssets(int bookId) async {
     if (kIsWeb) {
       await WebDatabase.instance.loadBookFromAssets(bookId);
@@ -257,14 +246,13 @@ class DatabaseHelper {
     try {
       final db = await database;
 
-      // Check if already loaded
       final countResult = await db.rawQuery(
         'SELECT COUNT(*) as cnt FROM verses WHERE bookId = ?',
         [bookId],
       );
       final count = countResult.first['cnt'] as int? ?? 0;
       if (count > 0) {
-        // Book is already loaded, skip inserting to save time
+
         return;
       }
 
@@ -281,8 +269,7 @@ class DatabaseHelper {
             final int verseNumber = int.parse(verseData['verse'].toString());
             final String text = verseData['text'] as String;
             final String? simpleTextFromJson = verseData['simpleText'] as String?;
-            
-            // Unique, predictable ID
+
             final int id = bookId * 1000000 + chapterNumber * 1000 + verseNumber;
 
             final String lookupKey = '${bookId}_${chapterNumber}_${verseNumber}';
@@ -312,7 +299,6 @@ class DatabaseHelper {
     }
   }
 
-  /// Close the database connection.
   Future<void> close() async {
     final db = await database;
     await db.close();

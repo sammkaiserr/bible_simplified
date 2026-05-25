@@ -1,7 +1,4 @@
-/// Complete Material 3 theme definitions for Bible Simplified.
-///
-/// Both light and dark themes with consistent styling across
-/// all Material components.
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'app_colors.dart';
@@ -10,7 +7,6 @@ import 'app_typography.dart';
 class AppTheme {
   AppTheme._();
 
-  // ─── Light Theme ──────────────────────────────────────────────
   static ThemeData get light {
     final textTheme = AppTypography.textTheme(Brightness.light);
 
@@ -32,7 +28,6 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.lightBg,
       textTheme: textTheme,
 
-      // AppBar
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.lightBg,
         foregroundColor: AppColors.lightOnBg,
@@ -43,7 +38,6 @@ class AppTheme {
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
 
-      // Cards
       cardTheme: CardThemeData(
         color: AppColors.lightSurface,
         elevation: 0,
@@ -54,7 +48,6 @@ class AppTheme {
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       ),
 
-      // Bottom Navigation
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.lightSurface,
         selectedItemColor: AppColors.primaryLight,
@@ -63,7 +56,6 @@ class AppTheme {
         elevation: 8,
       ),
 
-      // Chips
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.lightSurfaceVariant,
         selectedColor: AppColors.primaryLight.withValues(alpha: 0.15),
@@ -72,7 +64,6 @@ class AppTheme {
         side: BorderSide.none,
       ),
 
-      // Bottom Sheet
       bottomSheetTheme: const BottomSheetThemeData(
         backgroundColor: AppColors.lightSurface,
         shape: RoundedRectangleBorder(
@@ -80,13 +71,11 @@ class AppTheme {
         ),
       ),
 
-      // Dialog
       dialogTheme: DialogThemeData(
         backgroundColor: AppColors.lightSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
 
-      // Elevated Button
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primaryLight,
@@ -98,7 +87,6 @@ class AppTheme {
         ),
       ),
 
-      // Input Decoration
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.lightSurfaceVariant,
@@ -120,20 +108,17 @@ class AppTheme {
         ),
       ),
 
-      // Divider
       dividerTheme: DividerThemeData(
         color: AppColors.lightOutline.withValues(alpha: 0.3),
         thickness: 1,
       ),
 
-      // Slider
       sliderTheme: const SliderThemeData(
         activeTrackColor: AppColors.primaryLight,
         thumbColor: AppColors.primaryLight,
         inactiveTrackColor: AppColors.lightOutline,
       ),
 
-      // Switch
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) return AppColors.primaryLight;
@@ -149,7 +134,6 @@ class AppTheme {
     );
   }
 
-  // ─── Dark Theme ───────────────────────────────────────────────
   static ThemeData get dark {
     final textTheme = AppTypography.textTheme(Brightness.dark);
 
@@ -171,7 +155,6 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.darkBg,
       textTheme: textTheme,
 
-      // AppBar
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.darkBg,
         foregroundColor: AppColors.darkOnBg,
@@ -182,7 +165,6 @@ class AppTheme {
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
 
-      // Cards
       cardTheme: CardThemeData(
         color: AppColors.darkSurface,
         elevation: 0,
@@ -193,7 +175,6 @@ class AppTheme {
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       ),
 
-      // Bottom Navigation
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.darkSurface,
         selectedItemColor: AppColors.primaryDark,
@@ -202,7 +183,6 @@ class AppTheme {
         elevation: 8,
       ),
 
-      // Chips
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.darkSurfaceVariant,
         selectedColor: AppColors.primaryDark.withValues(alpha: 0.15),
@@ -211,7 +191,6 @@ class AppTheme {
         side: BorderSide.none,
       ),
 
-      // Bottom Sheet
       bottomSheetTheme: const BottomSheetThemeData(
         backgroundColor: AppColors.darkSurface,
         shape: RoundedRectangleBorder(
@@ -219,13 +198,11 @@ class AppTheme {
         ),
       ),
 
-      // Dialog
       dialogTheme: DialogThemeData(
         backgroundColor: AppColors.darkSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
 
-      // Elevated Button
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primaryDark,
@@ -237,7 +214,6 @@ class AppTheme {
         ),
       ),
 
-      // Input Decoration
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.darkSurfaceVariant,
@@ -259,20 +235,17 @@ class AppTheme {
         ),
       ),
 
-      // Divider
       dividerTheme: DividerThemeData(
         color: AppColors.darkOutline.withValues(alpha: 0.3),
         thickness: 1,
       ),
 
-      // Slider
       sliderTheme: const SliderThemeData(
         activeTrackColor: AppColors.primaryDark,
         thumbColor: AppColors.primaryDark,
         inactiveTrackColor: AppColors.darkOutline,
       ),
 
-      // Switch
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) return AppColors.primaryDark;

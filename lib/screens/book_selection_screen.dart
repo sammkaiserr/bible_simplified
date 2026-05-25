@@ -41,7 +41,6 @@ class _BookSelectionScreenState extends ConsumerState<BookSelectionScreen> with 
     final loc = AppLocalizations.of(settings.languageCode);
     final isTelugu = settings.languageCode == 'te';
 
-    // Filter books based on search query
     List<Book> filteredBooks = readingState.books.where((book) {
       final nameLower = book.name.toLowerCase();
       final englishLower = book.nameEnglish.toLowerCase();
@@ -66,7 +65,7 @@ class _BookSelectionScreenState extends ConsumerState<BookSelectionScreen> with 
           preferredSize: const Size.fromHeight(110.0),
           child: Column(
             children: [
-              // Search Input Bar
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 child: TextField(
@@ -99,7 +98,7 @@ class _BookSelectionScreenState extends ConsumerState<BookSelectionScreen> with 
                   ),
                 ),
               ),
-              // OT / NT Tab Indicators
+
               TabBar(
                 controller: _tabController,
                 indicatorColor: AppColors.gold500,
@@ -189,7 +188,7 @@ class _BookSelectionScreenState extends ConsumerState<BookSelectionScreen> with 
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
           onTap: () {
-            // Push to chapter selection screen
+
             context.push('/chapters', extra: book);
           },
           child: Padding(

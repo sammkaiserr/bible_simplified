@@ -38,14 +38,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         child: SafeArea(
           child: RefreshIndicator(
             onRefresh: () async {
-              // Trigger reload in provider if needed
+
             },
             color: AppColors.gold500,
             child: CustomScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
               slivers: [
-                // Custom App Bar
-                // Custom App Bar
+
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
@@ -60,7 +59,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             color: isDark ? AppColors.gold300 : AppColors.navy900,
                           ),
                         ),
-                        // Quick Settings Button
+
                         IconButton(
                           icon: const Icon(Icons.settings_outlined),
                           color: isDark ? Colors.white70 : AppColors.navy800,
@@ -71,7 +70,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                 ),
 
-                // Quick Navigation Library Row
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
@@ -107,7 +105,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                 ),
 
-                // Continue Reading Card
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
@@ -115,7 +112,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                 ),
 
-                // Recently Opened Section
                 if (readingState.recentlyOpened.isNotEmpty) ...[
                   SliverToBoxAdapter(
                     child: Padding(
@@ -149,7 +145,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                 ],
 
-                // Browse Bible Books Header
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20.0, top: 24.0, right: 20.0, bottom: 8.0),
@@ -183,7 +178,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                 ),
 
-                // Seeded/Popular Books Quick Navigation Grid
                 SliverPadding(
                   padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 32.0),
                   sliver: SliverGrid(
@@ -195,7 +189,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ),
                     delegate: SliverChildBuilderDelegate(
                       (context, index) {
-                        // Quick access to preloaded Books: Genesis (1), Psalms (19), Matthew (40), John (43)
+
                         final popularBookIds = [1, 19, 40, 43];
                         if (readingState.books.isEmpty) return const SizedBox();
                         final bookId = popularBookIds[index];
@@ -217,8 +211,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
     );
   }
-
-
 
   Widget _buildContinueReadingCard(ThemeData theme, bool isDark, BibleReadingState state, bool isTelugu) {
     final book = state.currentBook;
@@ -278,7 +270,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          isTelugu 
+                          isTelugu
                               ? '${book.name} - అధ్యాయం ${state.currentChapter}'
                               : '${book.nameEnglish} - Chapter ${state.currentChapter}',
                           style: theme.textTheme.titleMedium?.copyWith(
@@ -420,7 +412,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  isTelugu 
+                  isTelugu
                       ? '${book.totalChapters} అధ్యాయాలు'
                       : '${book.totalChapters} Chapters',
                   style: theme.textTheme.labelSmall?.copyWith(

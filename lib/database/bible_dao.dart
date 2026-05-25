@@ -25,7 +25,7 @@ class BibleDao {
       whereArgs: [bookId, chapter],
       orderBy: 'verseNumber',
     );
-    
+
     if (maps.isEmpty) {
       await DatabaseHelper.instance.loadBookFromAssets(bookId);
       maps = await DatabaseHelper.instance.query('verses',

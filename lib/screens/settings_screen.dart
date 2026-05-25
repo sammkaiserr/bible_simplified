@@ -35,7 +35,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         children: [
-          // Section: Language Selector
+
           _buildSectionHeader(theme, isDark, loc.translate('language'), settings.languageCode),
           _buildCardContainer(
             isDark: isDark,
@@ -89,7 +89,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           const SizedBox(height: 24),
 
-          // Section: Appearance & Theme
           _buildSectionHeader(theme, isDark, loc.translate('theme'), settings.languageCode),
           _buildCardContainer(
             isDark: isDark,
@@ -101,7 +100,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           const SizedBox(height: 24),
 
-          // Section: Typography & Text Settings
           _buildSectionHeader(theme, isDark, loc.translate('fontSize'), settings.languageCode),
           _buildCardContainer(
             isDark: isDark,
@@ -142,7 +140,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   },
                 ),
                 const SizedBox(height: 12),
-                // Live Preview Container
+
                 Container(
                   padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
@@ -182,9 +180,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           const SizedBox(height: 24),
 
-
-
-          // Section: About App
           _buildSectionHeader(theme, isDark, loc.translate('aboutApp'), settings.languageCode),
           _buildCardContainer(
             isDark: isDark,
@@ -323,7 +318,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       ],
     );
   }
-
 
   Widget _buildAboutRow(String title, String val, String languageCode) {
     return Padding(

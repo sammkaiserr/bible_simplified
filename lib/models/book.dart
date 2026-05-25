@@ -1,9 +1,9 @@
-/// Book model representing a Bible book.
+
 class Book {
   final int id;
-  final String name;        // Telugu name
-  final String nameEnglish; // English name
-  final String testament;   // 'OT' or 'NT'
+  final String name;
+  final String nameEnglish;
+  final String testament;
   final int totalChapters;
   final int orderIndex;
 

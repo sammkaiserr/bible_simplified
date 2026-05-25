@@ -69,7 +69,7 @@ class ChapterSelectionScreen extends ConsumerWidget {
     bool isDark,
     int chapterNum,
   ) {
-    // Check if this is the currently selected chapter in state to highlight it
+
     final readingState = ref.watch(bibleReadingProvider);
     final isCurrent = readingState.currentBook?.id == book.id &&
         readingState.currentChapter == chapterNum;
@@ -102,7 +102,7 @@ class ChapterSelectionScreen extends ConsumerWidget {
           borderRadius: BorderRadius.circular(16),
           onTap: () {
             ref.read(bibleReadingProvider.notifier).navigateToChapter(book, chapterNum);
-            // Route to reading page
+
             context.push('/read');
           },
           child: Center(
@@ -110,8 +110,8 @@ class ChapterSelectionScreen extends ConsumerWidget {
               '$chapterNum',
               style: theme.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w800,
-                color: isCurrent 
-                    ? Colors.white 
+                color: isCurrent
+                    ? Colors.white
                     : (isDark ? Colors.white : AppColors.navy950),
               ),
             ),

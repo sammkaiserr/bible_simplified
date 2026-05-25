@@ -14,14 +14,12 @@ class WebDatabase {
   List<Map<String, dynamic>> _notes = [];
   bool _initialized = false;
 
-  // In-memory cache of loaded books
   final Map<int, List<Map<String, dynamic>>> _loadedBooks = {};
 
   Future<void> init() async {
     if (_initialized) return;
     final prefs = await SharedPreferences.getInstance();
-    
-    // Load Bookmarks
+
     final bookmarksJson = prefs.getString('web_bookmarks');
     if (bookmarksJson != null) {
       try {
@@ -31,7 +29,6 @@ class WebDatabase {
       }
     }
 
-    // Load Highlights
     final highlightsJson = prefs.getString('web_highlights');
     if (highlightsJson != null) {
       try {
@@ -41,7 +38,6 @@ class WebDatabase {
       }
     }
 
-    // Load Notes
     final notesJson = prefs.getString('web_notes');
     if (notesJson != null) {
       try {
@@ -69,7 +65,6 @@ class WebDatabase {
     await prefs.setString('web_notes', json.encode(_notes));
   }
 
-  /// Loads a book's JSON asset dynamically and stores in memory cache
   Future<void> loadBookFromAssets(int bookId) async {
     if (_loadedBooks.containsKey(bookId)) return;
 
@@ -94,7 +89,7 @@ class WebDatabase {
           final int verseNumber = int.parse(verseData['verse'].toString());
           final String text = verseData['text'] as String;
           final String? simpleTextFromJson = verseData['simpleText'] as String?;
-          
+
           final int id = bookId * 1000000 + chapterNumber * 1000 + verseNumber;
 
           final String lookupKey = '${bookId}_${chapterNumber}_${verseNumber}';
@@ -119,7 +114,6 @@ class WebDatabase {
     }
   }
 
-  /// Helper to aggregate all loaded verses across cached books
   List<Map<String, dynamic>> _allLoadedVerses() {
     final List<Map<String, dynamic>> list = [];
     for (final bookList in _loadedBooks.values) {
@@ -158,12 +152,12 @@ class WebDatabase {
         if (where.contains('bookId = ? AND chapterNumber = ?')) {
           final bookId = whereArgs[0] as int;
           final chapter = whereArgs[1] as int;
-          
+
           await loadBookFromAssets(bookId);
-          
+
           var list = List<Map<String, dynamic>>.from(_loadedBooks[bookId] ?? []);
           list = list.where((v) => v['chapterNumber'] == chapter).toList();
-          
+
           if (orderBy == 'verseNumber') {
             list.sort((a, b) => (a['verseNumber'] as int).compareTo(b['verseNumber'] as int));
           }
@@ -171,9 +165,9 @@ class WebDatabase {
         } else if (where.contains('id = ?')) {
           final val = whereArgs[0] as int;
           final bookId = val ~/ 1000000;
-          
+
           await loadBookFromAssets(bookId);
-          
+
           var list = List<Map<String, dynamic>>.from(_loadedBooks[bookId] ?? []);
           list = list.where((v) => v['id'] == val).toList();
           return list;
@@ -212,9 +206,8 @@ class WebDatabase {
 
     final sqlLower = sql.toLowerCase();
 
-    // 1. Random Verse Query
     if (sqlLower.contains('order by random()')) {
-      // Pick a random verse from book 43 (John) or book 19 (Psalms) as fallback
+
       await loadBookFromAssets(43);
       final list = _loadedBooks[43] ?? [];
       if (list.isEmpty) return [];
@@ -222,14 +215,13 @@ class WebDatabase {
       return [list[idx]];
     }
 
-    // 2. Verse Count Query
     if (sqlLower.contains('select count(*)') && sqlLower.contains('from verses')) {
       if (arguments != null && arguments.length >= 2) {
         final bookId = arguments[0] as int;
         final chapter = arguments[1] as int;
-        
+
         await loadBookFromAssets(bookId);
-        
+
         final count = (_loadedBooks[bookId] ?? [])
             .where((v) => v['chapterNumber'] == chapter)
             .length;
@@ -238,42 +230,39 @@ class WebDatabase {
       return [{'cnt': 0}];
     }
 
-    // 3. Search Query
     if (sqlLower.contains('from verses v') && sqlLower.contains('verses_fts match')) {
       if (arguments != null && arguments.isNotEmpty) {
         final queryStr = (arguments[0] as String).replaceAll('"', '').toLowerCase().trim();
         if (queryStr.isEmpty) return [];
-        
+
         final list = _allLoadedVerses().where((v) {
           final oText = (v['originalText'] as String? ?? '').toLowerCase();
           final sText = (v['simpleText'] as String? ?? '').toLowerCase();
           final oEng = (v['originalTextEnglish'] as String? ?? '').toLowerCase();
           final sEng = (v['simpleTextEnglish'] as String? ?? '').toLowerCase();
-          
-          return oText.contains(queryStr) || 
-                 sText.contains(queryStr) || 
-                 oEng.contains(queryStr) || 
+
+          return oText.contains(queryStr) ||
+                 sText.contains(queryStr) ||
+                 oEng.contains(queryStr) ||
                  sEng.contains(queryStr);
         }).toList();
 
-        // Limit results to 50
         final results = list.take(50).toList();
         return results;
       }
       return [];
     }
 
-    // 4. Joined Bookmarks Query
     if (sqlLower.contains('from bookmarks b')) {
       var list = List<Map<String, dynamic>>.from(_bookmarks);
-      
+
       final books = {for (var b in BibleData.books) b['id'] as int: b};
       final verses = {for (var v in _allLoadedVerses()) v['id'] as int: v};
 
       final joined = list.map((b) {
         final bookId = b['bookId'] as int;
         final verseId = b['verseId'] as int;
-        
+
         final book = books[bookId];
         final verse = verses[verseId];
 
@@ -284,7 +273,6 @@ class WebDatabase {
         };
       }).toList();
 
-      // Sort by createdAt descending
       joined.sort((a, b) {
         final aTime = a['createdAt'] as String? ?? '';
         final bTime = b['createdAt'] as String? ?? '';
@@ -294,10 +282,9 @@ class WebDatabase {
       return joined;
     }
 
-    // 5. Joined Highlights Query
     if (sqlLower.contains('from highlights h')) {
       if (sqlLower.contains('where v.bookid = ?')) {
-        // SELECT h.verseId, h.colorHex FROM highlights h ...
+
         if (arguments != null && arguments.length >= 2) {
           final bookId = arguments[0] as int;
           final chapter = arguments[1] as int;
@@ -316,7 +303,7 @@ class WebDatabase {
         }
         return [];
       } else {
-        // SELECT h.*, bk.name as bookName, v.originalText as verseText ...
+
         var list = List<Map<String, dynamic>>.from(_highlights);
         final books = {for (var b in BibleData.books) b['id'] as int: b};
         final verses = {for (var v in _allLoadedVerses()) v['id'] as int: v};
@@ -344,10 +331,9 @@ class WebDatabase {
       }
     }
 
-    // 6. Joined Notes Query
     if (sqlLower.contains('from notes n')) {
       if (sqlLower.contains('where v.bookid = ?')) {
-        // SELECT n.* FROM notes n ...
+
         if (arguments != null && arguments.length >= 2) {
           final bookId = arguments[0] as int;
           final chapter = arguments[1] as int;
@@ -397,8 +383,7 @@ class WebDatabase {
 
   Future<int> insert(String table, Map<String, Object?> values) async {
     await init();
-    
-    // Convert to mutable Map
+
     final valMap = Map<String, dynamic>.from(values);
 
     if (table == 'bookmarks') {
@@ -481,7 +466,7 @@ class WebDatabase {
         await _saveNotes();
         return 1;
       } else {
-        // Fallback to insert
+
         return await insert(table, values);
       }
     }

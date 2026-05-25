@@ -1,16 +1,13 @@
-/// Verse model representing a single Bible verse.
-///
-/// Contains both the original traditional Telugu text and
-/// a simplified modern Telugu explanation, with optional English equivalents.
+
 class Verse {
   final int id;
   final int bookId;
   final int chapterNumber;
   final int verseNumber;
-  final String originalText;        // Traditional Telugu
-  final String? simpleText;         // Simple Telugu explanation
-  final String? originalTextEnglish; // Original English text
-  final String? simpleTextEnglish;   // Simple English explanation
+  final String originalText;
+  final String? simpleText;
+  final String? originalTextEnglish;
+  final String? simpleTextEnglish;
 
   const Verse({
     required this.id,
@@ -71,7 +68,6 @@ class Verse {
     );
   }
 
-  /// Reference string like "ఆదికాండము 1:1"
   String get reference => '$bookId:$chapterNumber:$verseNumber';
 
   @override

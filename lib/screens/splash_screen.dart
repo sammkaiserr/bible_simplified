@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: isDark 
+            colors: isDark
                 ? [AppColors.navy900, AppColors.navy950]
                 : [AppColors.ivory50, AppColors.ivory200],
           ),
@@ -44,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Logo/Icon Container
+
               Container(
                 width: 120,
                 height: 120,
@@ -76,7 +76,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
               const SizedBox(height: 32),
 
-              // English Title
               Text(
                 'Bible Simplified',
                 style: theme.textTheme.headlineMedium?.copyWith(
@@ -91,7 +90,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
               const SizedBox(height: 8),
 
-              // Telugu Subtitle
               Text(
                 'సులభమైన తెలుగు బైబిల్',
                 style: theme.textTheme.titleMedium?.copyWith(
@@ -106,7 +104,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
               const SizedBox(height: 48),
 
-              // Subtle Loading Indicator
               const SizedBox(
                 width: 24,
                 height: 24,

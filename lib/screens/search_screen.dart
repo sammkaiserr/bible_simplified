@@ -21,7 +21,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   @override
   void initState() {
     super.initState();
-    // Auto-focus search field
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _focusNode.requestFocus();
     });
@@ -57,7 +57,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       ),
       body: Column(
         children: [
-          // Search Input Container
+
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Container(
@@ -102,7 +102,6 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
             ),
           ),
 
-          // Search Results
           Expanded(
             child: _buildResultsBody(theme, isDark, searchState),
           ),
@@ -231,9 +230,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: () {
-          // Navigate to chapter first
+
           ref.read(bibleReadingProvider.notifier).navigateToChapter(book, verse.chapterNumber);
-          // Route to reading screen
+
           context.push('/read');
         },
         child: Padding(
@@ -241,7 +240,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Result Citation
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

@@ -1,4 +1,4 @@
-/// Bookmark model for saved verses.
+
 class Bookmark {
   final int? id;
   final int verseId;
@@ -7,7 +7,6 @@ class Bookmark {
   final int verseNumber;
   final String createdAt;
 
-  // Joined fields (populated when queried with book info)
   final String? bookName;
   final String? bookNameEnglish;
   final String? verseText;

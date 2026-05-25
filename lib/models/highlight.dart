@@ -1,4 +1,4 @@
-/// Highlight model for colored verse highlights.
+
 class Highlight {
   final int? id;
   final int verseId;
@@ -8,7 +8,6 @@ class Highlight {
   final String colorHex;
   final String createdAt;
 
-  // Joined fields
   final String? bookName;
   final String? bookNameEnglish;
   final String? verseText;

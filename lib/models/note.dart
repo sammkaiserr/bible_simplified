@@ -1,4 +1,4 @@
-/// Note model for personal verse notes.
+
 class Note {
   final int? id;
   final int verseId;
@@ -9,7 +9,6 @@ class Note {
   final String createdAt;
   final String updatedAt;
 
-  // Joined fields
   final String? bookName;
   final String? bookNameEnglish;
   final String? verseText;

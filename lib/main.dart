@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'models/book.dart';
 
-// Screens
 import 'screens/splash_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/reading_screen.dart';
@@ -16,14 +15,12 @@ import 'screens/search_screen.dart';
 import 'screens/library_screen.dart';
 import 'screens/settings_screen.dart';
 
-// Providers & Theme
 import 'providers/app_settings_provider.dart';
 import 'theme/app_colors.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Set preferred orientations (portrait only for standard mobile application)
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -49,8 +46,7 @@ class _MainAppState extends ConsumerState<MainApp> {
   @override
   void initState() {
     super.initState();
-    
-    // Configure Router Routes
+
     _router = GoRouter(
       initialLocation: '/',
       routes: [
@@ -99,8 +95,7 @@ class _MainAppState extends ConsumerState<MainApp> {
       debugShowCheckedModeBanner: false,
       routerConfig: _router,
       themeMode: settings.themeMode,
-      
-      // Premium Ivory Light Theme
+
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.light,
@@ -138,8 +133,7 @@ class _MainAppState extends ConsumerState<MainApp> {
           thumbColor: AppColors.gold500,
         ),
       ),
-      
-      // Premium Navy Midnight Dark Theme
+
       darkTheme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,

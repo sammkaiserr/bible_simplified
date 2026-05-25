@@ -1,7 +1,4 @@
-/// Typography system for Bible Simplified.
-///
-/// Uses Noto Sans Telugu from Google Fonts for excellent Telugu script
-/// rendering. Defines a scaled type system optimized for readability.
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
@@ -9,10 +6,8 @@ import 'app_colors.dart';
 class AppTypography {
   AppTypography._();
 
-  /// Base Telugu font family
   static String get _teluguFamily => GoogleFonts.notoSansTelugu().fontFamily!;
 
-  /// Get the text theme for the given brightness
   static TextTheme textTheme(Brightness brightness) {
     final bool isDark = brightness == Brightness.dark;
     final Color onBg = isDark ? AppColors.darkOnBg : AppColors.lightOnBg;
@@ -20,7 +15,7 @@ class AppTypography {
     final Color onSurfaceVariant = isDark ? AppColors.darkOnSurfaceVariant : AppColors.lightOnSurfaceVariant;
 
     return TextTheme(
-      // ─── Display ──────────────────────────────────
+
       displayLarge: TextStyle(
         fontFamily: _teluguFamily,
         fontSize: 36,
@@ -44,7 +39,6 @@ class AppTypography {
         height: 1.4,
       ),
 
-      // ─── Headline ─────────────────────────────────
       headlineLarge: TextStyle(
         fontFamily: _teluguFamily,
         fontSize: 24,
@@ -67,7 +61,6 @@ class AppTypography {
         height: 1.5,
       ),
 
-      // ─── Title ────────────────────────────────────
       titleLarge: TextStyle(
         fontFamily: _teluguFamily,
         fontSize: 18,
@@ -90,13 +83,12 @@ class AppTypography {
         height: 1.4,
       ),
 
-      // ─── Body (main reading text) ─────────────────
       bodyLarge: TextStyle(
         fontFamily: _teluguFamily,
         fontSize: 18,
         fontWeight: FontWeight.w400,
         color: onSurface,
-        height: 1.8, // Extra height for Telugu readability
+        height: 1.8,
       ),
       bodyMedium: TextStyle(
         fontFamily: _teluguFamily,
@@ -113,7 +105,6 @@ class AppTypography {
         height: 1.6,
       ),
 
-      // ─── Label ────────────────────────────────────
       labelLarge: TextStyle(
         fontFamily: _teluguFamily,
         fontSize: 14,
@@ -138,7 +129,6 @@ class AppTypography {
     );
   }
 
-  /// Special verse text style — used for Bible verse display
   static TextStyle verseStyle({
     required Brightness brightness,
     double fontSize = 20,
@@ -154,7 +144,6 @@ class AppTypography {
     );
   }
 
-  /// Simple Telugu explanation style
   static TextStyle simpleVerseStyle({
     required Brightness brightness,
     double fontSize = 17,
@@ -170,7 +159,6 @@ class AppTypography {
     );
   }
 
-  /// Verse number badge style
   static TextStyle verseNumberStyle({required Brightness brightness}) {
     final bool isDark = brightness == Brightness.dark;
     return TextStyle(
@@ -182,7 +170,6 @@ class AppTypography {
     );
   }
 
-  /// Custom original Telugu text style (reading screen)
   static TextStyle teluguOriginal({
     required double fontSize,
     required bool isDark,
@@ -197,7 +184,6 @@ class AppTypography {
     );
   }
 
-  /// Custom simple Telugu explanation style (reading screen)
   static TextStyle teluguSimple({
     required double fontSize,
     required bool isDark,

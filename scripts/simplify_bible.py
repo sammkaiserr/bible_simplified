@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Telugu Bible Simplification - High-Speed Parallel Batch Translator
 Uses ThreadPoolExecutor to translate multiple books in parallel,
@@ -14,14 +14,12 @@ import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from deep_translator import GoogleTranslator
 
-# Config paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ASSETS_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), "assets", "bible")
 BBE_CACHE_FILE = os.path.join(SCRIPT_DIR, "en_bbe.json")
 PROGRESS_FILE = os.path.join(SCRIPT_DIR, "progress.json")
 BBE_URL = "https://raw.githubusercontent.com/thiagobodruk/bible/master/json/en_bbe.json"
 
-# Standard order of the 66 books of the Bible
 STANDARD_BOOKS = [
     'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'Ruth',
     '1 Samuel', '2 Samuel', '1 Kings', '2 Kings', '1 Chronicles', '2 Chronicles', 'Ezra',
@@ -119,7 +117,6 @@ def translate_verses_fast(english_texts):
     if not english_texts:
         return []
 
-    # Chunk the verses to stay below character limit
     chunks = []
     current_chunk = []
     current_length = 0
@@ -133,7 +130,7 @@ def translate_verses_fast(english_texts):
         else:
             current_chunk.append(text)
             current_length += added_len
-            
+
     if current_chunk:
         chunks.append(current_chunk)
 
@@ -185,7 +182,7 @@ def process_book(book_idx, book_name, bbe_book):
             if "simpleText" not in v or not v["simpleText"]:
                 english_text = ""
                 try:
-                    # Handle special mismatches
+
                     if book_name == "Psalms" and chapter_num == 76:
                         english_text = bbe_book["chapters"][75][verse_num]
                     elif book_name == "3 John" and chapter_num == 1 and verse_num == 14:
@@ -195,16 +192,14 @@ def process_book(book_idx, book_name, bbe_book):
                 except IndexError:
                     pass
 
-                # Check if English text is omitted or invalid in BBE
                 clean_eng = english_text.strip()
                 if not clean_eng or clean_eng in ("[]", "***", "()", "[ ]") or not any(c.isalnum() for c in clean_eng):
-                    v["simpleText"] = v["text"]  # Fallback to original Telugu text
+                    v["simpleText"] = v["text"]
                     modified = True
                 else:
                     needs_translation.append(v)
                     english_texts.append(english_text)
 
-        # Translate in fast chunked mode
         if needs_translation:
             translated_texts = translate_verses_fast(english_texts)
 
@@ -217,7 +212,7 @@ def process_book(book_idx, book_name, bbe_book):
                         modified = True
                     else:
                         book_has_failures = True
-                
+
                 if book_has_failures:
                     safe_print(f"    ✗ {book_name} Ch.{chapter_num}: Some verses failed to translate (returned empty)")
                     if modified:
@@ -231,7 +226,6 @@ def process_book(book_idx, book_name, bbe_book):
                 safe_print(f"    ✗ {book_name} Ch.{chapter_num}: FAILED translation mismatch")
                 return book_name, False
 
-    # Save once after the entire book is finished to avoid lock contentions
     if modified:
         try:
             with open(filepath, 'w', encoding='utf-8') as f:
@@ -247,19 +241,17 @@ def main():
     print("=" * 60)
     print("Telugu Bible Simplification - Parallel Batch Translator")
     print("=" * 60)
-    
+
     download_bbe_if_needed()
-    
-    # Load cached BBE database
+
     with open(BBE_CACHE_FILE, 'r', encoding='utf-8') as f:
         bbe_data = json.load(f)
-    
-    # Collect books to process by checking actual JSON files for missing translations
+
     books_to_process = []
     for idx, book_name in enumerate(STANDARD_BOOKS):
         filepath = os.path.join(ASSETS_DIR, f"{book_name}.json")
         needs_translation = False
-        
+
         if not os.path.exists(filepath):
             needs_translation = True
         else:
@@ -275,31 +267,30 @@ def main():
                         break
             except Exception:
                 needs_translation = True
-                
+
         if needs_translation:
             books_to_process.append((idx, book_name, bbe_data[idx]))
-            
+
     if not books_to_process:
         print("\n🎉 ALL 66 BOOKS OF THE BIBLE FULLY SIMPLIFIED AND VERIFIED!")
         sys.exit(0)
 
     print(f"Launching parallel translator with 45 worker threads for {len(books_to_process)} books...")
-    
+
     start_time = time.time()
-    
-    # Execute translations in parallel
+
     with ThreadPoolExecutor(max_workers=45) as executor:
         futures = {
-            executor.submit(process_book, idx, name, bbe): name 
+            executor.submit(process_book, idx, name, bbe): name
             for idx, name, bbe in books_to_process
         }
-        
+
         for future in as_completed(futures):
             book_name = futures[future]
             try:
                 name, success = future.result()
                 if success:
-                    # Update progress in a thread-safe way
+
                     progress = load_progress()
                     if name not in progress["completed_books"]:
                         progress["completed_books"].append(name)

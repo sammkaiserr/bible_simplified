@@ -1,5 +1,4 @@
-/// Shared key model representing a specific chapter in a book,
-/// used to index database notes, highlights, and annotations.
+
 class ChapterKey {
   final int bookId;
   final int chapter;

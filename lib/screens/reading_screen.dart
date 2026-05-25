@@ -51,7 +51,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
     final book = readingState.currentBook!;
     final chapter = readingState.currentChapter;
 
-    // Fetch chapter Highlights and Notes asynchronously
     final highlightsAsync = ref.watch(chapterHighlightsProvider(ChapterKey(book.id, chapter)));
     final notesAsync = ref.watch(chapterNotesProvider(ChapterKey(book.id, chapter)));
 
@@ -76,7 +75,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
         ),
         actions: [
 
-          // Font Settings Button
           IconButton(
             icon: const Icon(Icons.format_size_rounded),
             tooltip: 'అక్షరాల పరిమాణం',
@@ -91,10 +89,10 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
               onHorizontalDragEnd: (details) {
                 if (details.primaryVelocity == null) return;
                 if (details.primaryVelocity! < 0) {
-                  // Swipe Left -> Next Chapter
+
                   ref.read(bibleReadingProvider.notifier).nextChapter();
                 } else if (details.primaryVelocity! > 0) {
-                  // Swipe Right -> Previous Chapter
+
                   ref.read(bibleReadingProvider.notifier).previousChapter();
                 }
               },
@@ -119,7 +117,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
             ),
           ),
 
-          // Bottom Chapter Navigation Bar
           _buildBottomNavBar(context, isDark, book, chapter),
         ],
       ),
@@ -197,7 +194,7 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Verse header: number & optional annotation indicator
+
                   Row(
                     children: [
                       Container(
@@ -224,7 +221,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
                   ),
                   const SizedBox(height: 12),
 
-                  // Simple Translated Text
                   Text(
                     verse.originalText,
                     style: AppTypography.teluguSimple(
@@ -233,7 +229,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
                     ),
                   ),
 
-                  // Display note preview if available
                   if (note != null) ...[
                     const SizedBox(height: 10),
                     Container(
@@ -265,8 +260,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
     );
   }
 
-
-
   Widget _buildBottomNavBar(
     BuildContext context,
     bool isDark,
@@ -290,7 +283,7 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Previous Chapter
+
             IconButton(
               icon: const Icon(Icons.arrow_back_ios_new_rounded),
               onPressed: () {
@@ -299,7 +292,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
               },
             ),
 
-            // Chapter indicator button
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.gold500.withOpacity(0.15),
@@ -319,7 +311,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
               ),
             ),
 
-            // Next Chapter
             IconButton(
               icon: const Icon(Icons.arrow_forward_ios_rounded),
               onPressed: () {
@@ -332,10 +323,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
       ),
     );
   }
-
-  // ─── Settings Bottom Sheets ────────────────────────────────────
-
-
 
   void _showFontSizeSelector(BuildContext context, WidgetRef ref, AppSettings settings) {
     showModalBottomSheet(
@@ -404,8 +391,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
     );
   }
 
-  // ─── Verse Long-Press Action Bottom Sheet ──────────────────────
-
   void _showVerseActionsSheet(
     BuildContext context,
     WidgetRef ref,
@@ -430,7 +415,7 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // Sheet Header
+
               Text(
                 '$bookName ${verse.chapterNumber}:${verse.verseNumber}',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -440,13 +425,12 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
               ),
               const SizedBox(height: 16),
 
-              // Horizontal Highlight Color Options
               SizedBox(
                 height: 48,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    // Clear Highlight Button
+
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4.0),
                       child: InkWell(
@@ -491,7 +475,6 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
               const SizedBox(height: 12),
               const Divider(),
 
-              // Primary Verse Actions List
               ListTile(
                 leading: Icon(
                   isBookmarked ? Icons.bookmark_added_rounded : Icons.bookmark_add_outlined,
@@ -646,6 +629,5 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
       },
     );
   }
-
 
 }

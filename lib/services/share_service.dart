@@ -8,7 +8,7 @@ import 'dart:ui' as ui;
 import '../models/verse.dart';
 
 class ShareService {
-  /// Shares plain text representation of a verse.
+
   Future<void> shareText({
     required Verse verse,
     required String bookName,
@@ -23,13 +23,11 @@ ${verse.originalText}
     await Share.share(text, subject: '$bookName ${verse.chapterNumber}:${verse.verseNumber}');
   }
 
-  /// Captures a RepaintBoundary widget as an image and shares it.
   Future<void> shareImage(GlobalKey boundaryKey, String fileName) async {
     try {
       final boundary = boundaryKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
       if (boundary == null) return;
 
-      // Request a high pixel ratio for clean typography rendering
       final ui.Image image = await boundary.toImage(pixelRatio: 3.0);
       final ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
       if (byteData == null) return;
