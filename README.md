@@ -6,6 +6,17 @@ A premium, state-of-the-art Flutter mobile and web application that presents the
 
 ---
 
+## 🛠️ Technology Stack
+
+- **Framework:** [Flutter](https://flutter.dev) (Dart multiplatform framework for Mobile & Web)
+- **State Management:** [Riverpod](https://riverpod.dev) (modern, safe, reactive state management)
+- **Routing & Navigation:** [GoRouter](https://pub.dev/packages/go_router) (declarative routing for seamless Web SPA support)
+- **Database Architecture:** [sqflite](https://pub.dev/packages/sqflite) (local SQLite database for mobile offline support) & in-browser IndexedDB mappings (for offline web capabilities)
+- **Scripting & Seeding Pipeline:** Python 3 (concurrent batching, requests-based API endpoint mapping)
+- **Cloud Hosting:** [Vercel](https://vercel.com) (SPA serverless routing, automatic Git integration)
+
+---
+
 ## ✨ Features
 
 - 🌟 **Simplified-Only Interface:** Complete removal of archaic traditional text, presenting the simplified modern translation as the primary, seamless scripture reading text.
